@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Container, CssBaseline, Typography } from '@mui/material'
 import ModalComponent from './ModalComponent';
 import { ReactComponent as Star } from '../images/Star.svg'
+import { ReactComponent as FilledStar } from '../images/Filledstar.svg'
 import { ReactComponent as Edit } from '../images/Edit.svg'
 import { ReactComponent as Delete } from '../images/Delete.svg'
 import { ReactComponent as Calendar } from '../images/Calendar.svg'
@@ -17,9 +18,25 @@ function CardDetails() {
     console.log(cardDetails.gitHub)
 
     const [openModal, setOpenModal] = useState(false);
+    const [liked, setLiked] = useState(cardDetails.favourite);
 
     const onDelete = () => {
         setOpenModal(true);
+    }
+
+    const onLiked = () => {
+        setLiked(!liked);
+
+        const allCardDetails = JSON.parse(localStorage.getItem('cardDetails'));
+        const card = allCardDetails.filter((card) => card.id.toString() === id)[0];
+        const otherCards = allCardDetails.filter((card) => card.id.toString() !== id);
+        //console.log("card details : ", cardDetails);
+        card.favourite = !liked;
+        //console.log("After Liked : ", cardDetails.favourite);
+        localStorage.setItem('cardDetails', JSON.stringify([
+            card,
+            ...otherCards
+        ]))
     }
 
     return (
@@ -38,7 +55,8 @@ function CardDetails() {
                             <p className="text-sm">{cardDetails.summary}</p>
                         </div>
                         <div className='flex'>
-                            <div className="border-r border-gray-600 pr-4 mr-4"><Star /></div>
+                            <div onClick={onLiked}
+                                className="border-r border-gray-600 pr-4 mr-4">{liked ? <FilledStar /> : <Star />}</div>
                             <div>
                                 <input type="date"
                                     className='bg-[#255973] rounded-xl text-white px-2'
@@ -48,24 +66,26 @@ function CardDetails() {
                     </div>
                     <div className="w-[20%] flex flex-col">
                         <Link to={`/submission/${id}`}>
-                            <button className='bg-[#003145] min-w-[110px] my-4 text-white px-4 py-1 border border-white rounded-md'>
+                            <button className='bg-[#003145] my-4 min-w-[110px] text-white px-4 py-1 border border-white rounded-md'>
                                 <div className='flex'>
                                     <Edit className='mx-2' />
                                     <p>Edit</p>
                                 </div>
                             </button>
                         </Link>
-                        <button onClick={onDelete}
-                            className='bg-[#003145] my-4 min-w-[110px] text-white px-4 py-1 border border-white rounded-md'>
-                            <div className='flex'>
-                                <Delete className='mx-2' />
-                                <p>Delete</p>
-                            </div>
-                        </button>
+                        <div>
+                            <button className='bg-[#003145] my-4 min-w-[110px] text-white px-4 py-1 border border-white rounded-md'
+                                onClick={onDelete} >
+                                <div className='flex'>
+                                    <Delete className='mx-2' />
+                                    <p>Delete</p>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div className='px-40 py-20 flex'>
-                    <Container>
+                <div className='px-40 py-20 flex w-full'>
+                    <Container className=''>
                         <Typography variant='h4' gutterBottom>
                             Description
                         </Typography>
@@ -73,7 +93,7 @@ function CardDetails() {
                             <p>{cardDetails.description}</p>
                         </Typography>
                     </Container>
-                    <Container className='flex flex-col items-end'>
+                    <Container className='!w-auto'>
                         <div>
                             <Typography>
                                 <p>Hackathon</p>

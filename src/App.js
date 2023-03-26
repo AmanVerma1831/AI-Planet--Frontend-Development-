@@ -8,10 +8,10 @@ import CardDetails from './components/CardDetails';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Nav />
-      </header>
       <BrowserRouter>
+        <header className="App-header">
+          <Nav />
+        </header>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exect path="/submission" element={<Submission />} />
