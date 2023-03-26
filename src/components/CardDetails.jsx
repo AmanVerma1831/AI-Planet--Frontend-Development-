@@ -14,6 +14,7 @@ function CardDetails() {
     const { id } = useParams();
     const cardDetails = JSON.parse(localStorage.getItem('cardDetails')).filter((cardDetail) => cardDetail.id.toString() === id)[0];
     // console.log(cardDetails);
+    console.log(cardDetails.gitHub)
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -41,12 +42,12 @@ function CardDetails() {
                             <div>
                                 <input type="date"
                                     className='bg-[#255973] rounded-xl text-white px-2'
-                                    value={cardDetails.dateStart} />
+                                    value={cardDetails.startDate} />
                             </div>
                         </div>
                     </div>
                     <div className="w-[20%] flex flex-col">
-                        <Link to="/submission">
+                        <Link to={`/submission/${id}`}>
                             <button className='bg-[#003145] min-w-[110px] my-4 text-white px-4 py-1 border border-white rounded-md'>
                                 <div className='flex'>
                                     <Edit className='mx-2' />
@@ -81,25 +82,25 @@ function CardDetails() {
                                 {cardDetails.hackathonName}
                             </Typography>
                             <Typography paragraph>
-                                <p className='flex'><Calendar className='mr-2' />{cardDetails.dateStart} - {cardDetails.dateEnd}</p>
+                                <p className='flex'><Calendar className='mr-2' />{cardDetails.startDate} - {cardDetails.endDate}</p>
                             </Typography>
                             <div className="flex flex-col">
-                                <Link to={cardDetails.github}>
+                                <a href={cardDetails.gitHub} target='_blank' rel="noreferrer">
                                     <button className='min-w-[200px] my-4 text-gray-400 py-4 border border-gray-400 rounded-md'>
                                         <div className='flex mx-4'>
                                             <Git className='mx-2' />
                                             <p>GitHub Repository</p>
                                         </div>
                                     </button>
-                                </Link>
-                                <Link to={cardDetails.links}>
+                                </a>
+                                <a href={cardDetails.links} target='_blank' rel="noreferrer">
                                     <button className='my-4 min-w-[200px] text-gray-400 p-4 border border-gray-400 rounded-md'>
                                         <div className='flex'>
                                             <Linksign className='mx-2' />
                                             <p>Other Link</p>
                                         </div>
                                     </button>
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </Container>

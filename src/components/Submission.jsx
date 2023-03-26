@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { ReactComponent as ImgVector } from '../images/ImgVector.svg'
 import { useNavigate } from 'react-router-dom';
 
 function Submission() {
     const nevigate = useNavigate();
+    const { id } = useParams();
+
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [description, setDescription] = useState('');
@@ -18,7 +21,7 @@ function Submission() {
         let num = 0;
         e.preventDefault();
         console.log('getting submit....');
-        const cardDetails = JSON.parse(localStorage.getItem("cardDetails"));
+        const cardDetails = JSON.parse(localStorage.getItem("cardDetails")).filter((cd) => cd.id.toString() !== id);
         localStorage.setItem('cardDetails', JSON.stringify([{
             id: num + 1,
             title: title,
@@ -27,15 +30,32 @@ function Submission() {
             image: `../images/${image}`,
             hackathonName: hackathonName,
             date: `uploaded just now`,
-            dateStart: startDate,
-            dateEnd: endDate,
+            startDate: startDate,
+            endDate: endDate,
             github: gitHub,
             links: links
 
         }, ...cardDetails]))
         nevigate("/");
-
     }
+
+    useEffect(() => {
+        if (!id)
+            return;
+
+        const cardDetails = JSON.parse(localStorage.getItem('cardDetails')).filter((card) => card.id.toString() === id)[0];
+        // console.log(cardDetails.title);
+        setTitle(cardDetails.title);
+        setSummary(cardDetails.summary);
+        setDescription(cardDetails.description);
+        setImage(cardDetails.image);
+        setHackathonName(cardDetails.hackathonName);
+        setStartDate(cardDetails.startDate);
+        setEndDate(cardDetails.endDate);
+        setGitHub(cardDetails.gitHub);
+        setLinks(cardDetails.links);
+    }, [id])
+
     const onTitleChange = (e) => { setTitle(e.target.value) }
     const onSummaryChange = (e) => { setSummary(e.target.value) }
     const onDescriptionChange = (e) => { setDescription(e.target.value) }
@@ -106,7 +126,7 @@ function Submission() {
                                         <div className="flex items-center justify-center">
                                             <ImgVector className='absolute' />
                                             <img src={`../images/${image}`}
-                                                className="absolute w-[120px] rounded-md" alt="uploded-img" />
+                                                className="absolute w-[120px] rounded-md" alt="" />
                                             <input
                                                 name="file-img"
                                                 type="file"

@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exect path="/submission" element={<Submission />} />
+          <Route exect path="/submission/:id" element={<Submission />} />
           <Route exect path="/card-details/:id" element={<CardDetails />} />
         </Routes>
       </BrowserRouter>
