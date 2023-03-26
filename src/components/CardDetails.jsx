@@ -25,7 +25,7 @@ function CardDetails() {
         <div>
             <CssBaseline />
             <main>
-                {openModal && <ModalComponent open={setOpenModal} />}
+                {openModal && <ModalComponent open={setOpenModal} id={id} />}
                 <div className="flex w-full bg-[#003145] p-16 justify-between">
                     <div className="text-white w-[80%] p-4" >
                         <div className='mb-2 flex items-center'>
