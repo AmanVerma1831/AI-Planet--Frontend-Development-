@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Card, CardContent, Typography, Grid, CardMedia } from '@mui/material'
+import { Card, CardContent, Typography, Grid } from '@mui/material'
 import { Link } from 'react-router-dom';
 
 function Cards(props) {
@@ -145,11 +145,15 @@ function Cards(props) {
                     <Grid item key={cardDetail.id} xs={12} sm={6} md={4}>
                         <Link to={`/card-details/${cardDetail.id}`}>
                             <Card className="h-full flex flex-col rounded-2xl">
-                                <CardMedia className="pt-[56.26%]" image={cardDetail.image} title={cardDetail.title} />
-                                <CardContent className="grow">
-                                    <Typography varient="h4" gutterBottom>
-                                        <p className='font-semibold'>{cardDetail.title}</p>
-                                    </Typography>
+                                <div className="flex items-center p-4">
+                                    <img className="w-28 h-24 rounded-lg" src={cardDetail.image} alt={cardDetail.title} />
+                                    <CardContent className="grow">
+                                        <Typography varient="h4" gutterBottom>
+                                            <p className='font-semibold'>{cardDetail.title}</p>
+                                        </Typography>
+                                    </CardContent>
+                                </div>
+                                <CardContent>
                                     <Typography>
                                         <p className='text-sm'>{cardDetail.summary}</p>
                                     </Typography>
