@@ -35,9 +35,9 @@ function HeroCard() {
 
     return (
         <div className='bg-[#F5F5F5]'>
-            <div className="p-40">
-                <div className="flex justify-between">
-                    <div className="flex text-gray-600">
+            <div className="p-8 md:p-40">
+                <div className="md:flex md:justify-between">
+                    <div className="flex text-gray-600 py-4 sm:py-0">
                         <button onClick={onSub} className="hover:text-black hover:border-b-4 hover:border-b-green-700 font-bold mx-4">All Submissions</button>
                         <button onClick={onFav} className="hover:text-black hover:border-b-4 hover:border-b-green-700 font-bold mx-4">Favourite Submissions</button>
                     </div>

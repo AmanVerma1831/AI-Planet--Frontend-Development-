@@ -11,7 +11,7 @@ function Nav() {
     }
 
     return (
-        <div onClick={onLogoClick} className="pl-40 h-[60px] w-full flex items-center">
+        <div onClick={onLogoClick} className="md:pl-40 h-[60px] w-full flex justify-center md:justify-start items-center">
             <Logo />
         </div>
     )

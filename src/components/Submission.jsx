@@ -68,10 +68,10 @@ function Submission() {
 
     return (
         <div className='bg-[#F5F5F5]'>
-            <div className="px-20 py-10">
+            <div className="md:px-20 md:py-10">
                 <div>
                     <div className="relative flex flex-col justify-center items-center min-h-screen overflow-hidden ">
-                        <div className="w-full p-12 bg-white rounded-md pr-40">
+                        <div className="w-full p-4 md:p-12 bg-white rounded-md md:pr-40">
                             <h1 className="text-3xl font-semibold text-start uppercase my-16">
                                 New Hackathon Submission
                             </h1>
@@ -154,8 +154,8 @@ function Submission() {
                                         />
                                     </label>
                                 </div>
-                                <div className="mb-12 flex">
-                                    <label className="mr-12">
+                                <div className="mb-12 md:flex">
+                                    <label className="md:mr-12">
                                         <span className="text-gray-700 text-xl">Hackathon Start Date</span>
                                         <input
                                             type="date"

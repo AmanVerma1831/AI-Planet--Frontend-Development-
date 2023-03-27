@@ -8,13 +8,13 @@ function Hero() {
         <div>
             <CssBaseline />
             <main>
-                <div className="flex w-full bg-[#003145] p-16 justify-between">
-                    <div className="text-white w-[60%] p-4" >
+                <div className="flex w-full bg-[#003145] py-4 md:p-16 md:justify-between">
+                    <div className="text-white md:w-[60%] p-4" >
                         <div className='mb-2'>
-                            <h2 className="text-4xl font-bold">Hackathon Submissions</h2>
+                            <h2 className="sm:text-3xl md:text-4xl font-bold">Hackathon Submissions</h2>
                         </div>
                         <div className='mb-4'>
-                            <p className="text-sm">Lorem ipsum dolor sit amet consectetur. Urna cursus amet pellentesque in parturient purus feugiat faucibus. Congue laoreet duis porta turpis eget suspendisse ac pharetra amet. Vel nisl tempus nec vitae.</p>
+                            <p className="text-xs md:text-base">Lorem ipsum dolor sit amet consectetur. Urna cursus amet pellentesque in parturient purus feugiat faucibus. Congue laoreet duis porta turpis eget suspendisse ac pharetra amet. Vel nisl tempus nec vitae.</p>
                         </div>
                         <div>
                             <Link to="/submission">
@@ -24,7 +24,7 @@ function Hero() {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-[30%]">
+                    <div className="md:w-[30%]">
                         <Design className='w-[150px] h-[200px]' />
                     </div>
                 </div>

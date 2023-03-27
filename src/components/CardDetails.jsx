@@ -44,11 +44,11 @@ function CardDetails() {
             <CssBaseline />
             <main>
                 {openModal && <ModalComponent open={setOpenModal} id={id} />}
-                <div className="flex w-full bg-[#003145] p-16 justify-between">
-                    <div className="text-white w-[80%] p-4" >
-                        <div className='mb-2 flex items-center'>
+                <div className="md:flex w-full bg-[#003145] md:p-16 md:justify-between">
+                    <div className="text-white md:w-[80%] p-4" >
+                        <div className='mb-2 md:flex items-center'>
                             <img src={cardDetails.image}
-                                className="w-[120px] rounded-md" alt="uploded-img" />
+                                className="md:w-[120px] rounded-md" alt="uploded-img" />
                             <h2 className="text-4xl font-bold ml-8">{cardDetails.title}</h2>
                         </div>
                         <div className='my-8'>
@@ -64,7 +64,7 @@ function CardDetails() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[20%] flex flex-col">
+                    <div className="md:w-[20%] flex md:flex-col justify-between md:justify-start px-4 md:px-0">
                         <Link to={`/submission/${id}`}>
                             <button className='bg-[#003145] my-4 min-w-[110px] text-white px-4 py-1 border border-white rounded-md'>
                                 <div className='flex'>
@@ -84,8 +84,8 @@ function CardDetails() {
                         </div>
                     </div>
                 </div>
-                <div className='px-40 py-20 flex w-full'>
-                    <Container className=''>
+                <div className='md:px-40 py-20 flex flex-col-reverse md:flex-row w-full'>
+                    <Container className='py-4'>
                         <Typography variant='h4' gutterBottom>
                             Description
                         </Typography>
