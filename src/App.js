@@ -5,6 +5,7 @@ import Nav from './navbar/Nav';
 import './App.css';
 import Submission from './components/Submission';
 import CardDetails from './components/CardDetails';
+import Footer from './footer/Footer';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route exect path="/submission/:id" element={<Submission />} />
         <Route exect path="/card-details/:id" element={<CardDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
