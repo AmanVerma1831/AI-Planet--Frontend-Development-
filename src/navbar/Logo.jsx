@@ -4,7 +4,7 @@ import logo from '../images/AI Planet Logo.png'
 function Logo() {
     return (
         <div className="flex">
-            <img className="" alt="" src={logo} />
+            <img className="cursor-pointer" alt="" src={logo} />
         </div>
     )
 }
