@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create React App
 
 ## Available Scripts
 
@@ -8,8 +8,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -29,42 +28,35 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `Task`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Assignment for a front-end development internship
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Objective - Create a submissions app where one can submit their hackathon submissions & see the list.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Context : Imagine you are working for an Edtech company and you are asked to create a simple application that will allow to submit a hackathon submissions. The hackathon consists of a problem statement which can be accessed by participants to solve and make a submission. Here let’s imagine hackthons feature is already built & you are asked to build the submissions feature where learners can submit their hackthon solutions.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Application overview -
+-> Learners should be able to create, edit, and delete their submission.
+-> Every submission form should have following fields:
+-> Title
+-> Summary
+-> Description
+-> Cover Image
+-> Hackthon name
+-> Hackthon start date
+-> Hackthon end date
+-> Github repository link
+-> Other links(optional)
+-> Learners should be able to see the list of submissions.
+-> Where learner can search the submission using title
+-> Learners should be able to sort the submissions based on hackathon start date(oldest, newest)
 
-## Learn More
+There should be 2 tabs.
+-> All submissions
+-> Favourite submissions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When clicked on submission it should take them to page where learner can see all the data related to submission.
+On this page, learner should be able to edit, delete the submission & by clicking on the start icon they can make that submission as their favorite.
+And all the favourite submissions should be visible in favourite tab.
+You don’t need to build backend for this. You can use the local storage as db where you can store the submissions data.
